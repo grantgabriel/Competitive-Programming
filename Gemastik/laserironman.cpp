@@ -2,22 +2,18 @@
 #include <algorithm>
 #include <vector>
 #include <cmath>
-
 using namespace std;
 
-// Structure to store the coordinates of a point
 struct Point {
     int x;
     int y;
 };
 
-// Structure to store the coordinates of a line segment
 struct Segment {
     Point p1;
     Point p2;
 };
 
-// Function to calculate the cross product of two vectors
 int cross_product(Point a, Point b, Point c) {
     int x1 = a.x - b.x;
     int y1 = a.y - b.y;
@@ -26,7 +22,6 @@ int cross_product(Point a, Point b, Point c) {
     return x1*y2 - x2*y1;
 }
 
-// Function to check if two line segments intersect
 bool intersect(Segment s1, Segment s2) {
     int c1 = cross_product(s1.p1, s1.p2, s2.p1);
     int c2 = cross_product(s1.p1, s1.p2, s2.p2);
