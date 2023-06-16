@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    int N, temp, untung = 0, tahan;
+    int N, untung = 0, tahan;
     bool beli = false;
     cin >> N;
 

@@ -21,14 +21,7 @@ int main() {
     for(int i = 0; i < K; i++) {
         cin >> nodesarang[i][0];
         cin >> nodesarang[0][i];
-    
     }
-
-    for(int i = 0; i < N; i++)
-        for(int j = 0; j < N; j++)
-            cin >> array[i][j];
-
-
 
     return 0;
 }
