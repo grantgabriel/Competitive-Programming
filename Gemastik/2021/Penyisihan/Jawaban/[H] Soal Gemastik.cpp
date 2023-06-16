@@ -2,11 +2,18 @@
 #define MOD 1000000007;
 using namespace std;
 
+int factorial(int n) {
+    if(n == 0) return 1;
+    else return n * factorial(n - 1);
+}
 
 int main() {    
-    int N;
-    int arr[N/2][N/2];
+    int a, b, c, d, N;
+    cin >> N >> a >> b >> c >> d;
 
-    for(int i = 0; i <)
+    int hasil = factorial(a - 1) * factorial(b - a - 1) * factorial(c - b - 1) * factorial(N - d);
+
+    cout << hasil % MOD;
+
     return 0;
 }

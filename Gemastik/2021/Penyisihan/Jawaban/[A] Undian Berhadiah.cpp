@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>  
 using namespace std;
 
-#include <bits/stdc++.h>
-using namespace std;
-
 #define ll long long
 #define pii pair<int, int>
 #define pll pair<long long, long long>
@@ -52,10 +49,9 @@ typedef long int int32;
 typedef unsigned long int uint32;
 typedef long long int int64;
 typedef unsigned long long int  uint64;
-int main()
-{
+int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    cin.tie(NULL); 
 
     int N, i, Y, temp = 99999, min, nums;
     bool dub = false;
@@ -64,21 +60,18 @@ int main()
 
     int X[N];
 
-    foro(i, N)
-    {
+    foro(i, N) {
         cin >> X[i];
         min = abs(Y - X[i]);
 
-        if(temp > min)
-        {
+        if(temp > min) {
             temp = min;
             nums = X[i]; 
         }
-        else if(temp == min) { dub = true; }
+        else if(temp == min) dub = true;
     }
 
-    if(dub == true)
-    {
+    if(dub) {
         cout << Y - temp << '\n' << Y + temp;
     
         return 0;
