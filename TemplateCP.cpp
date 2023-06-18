@@ -14,6 +14,7 @@ using namespace std;
 #define foro(i,e) for(long long int i=0; i<e; i++)
 #define cf(i,s,e) for(long long int i=s;i<=e;i++)
 #define rf(i,e,s) for(long long int i=e-1;i>=s;i--)
+#define boost ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 #define pb push_back
 #define eb emplace_back
 #define sw swap
@@ -51,8 +52,7 @@ typedef long long int int64;
 typedef unsigned long long int  uint64;
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    boost;
 
     return 0;
 }
