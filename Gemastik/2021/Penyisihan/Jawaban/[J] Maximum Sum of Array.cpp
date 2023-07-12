@@ -16,13 +16,13 @@ int main() {
     for(int i = 0; i < N; i++) {
         if(i >= M) {
             maksimum = max(maksimum, array[i - M]);
-            cout << "Maksimum " << i << " : " << maksimum << endl;
+            // cout << "Maksimum " << i << " : " << maksimum << endl;
             array[i] += maksimum;
-            cout << "Array i setelah dijumlah dengan maksimum i " << array[i] << endl;
+            // cout << "Array i setelah dijumlah dengan maksimum i " << array[i] << endl;
         }
 
         jumlah = max(array[i], jumlah);
-        cout << "Jumlah : " << jumlah << "\n" << endl;
+        // cout << "Jumlah : " << jumlah << "\n" << endl;
     }
 
     cout << jumlah;
