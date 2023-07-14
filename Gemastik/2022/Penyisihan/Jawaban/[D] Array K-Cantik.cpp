@@ -1,3 +1,5 @@
+// General solution : Soal dajjal.
+
 #include <iostream>
 #include <map>
 #include <algorithm>

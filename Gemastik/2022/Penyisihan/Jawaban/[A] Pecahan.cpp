@@ -1,3 +1,5 @@
+// General solution : Ya pembagian doang anjir tinggal bandingkan.
+
 #include <iostream>
 #define boost ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 #define lb "lebih besar"

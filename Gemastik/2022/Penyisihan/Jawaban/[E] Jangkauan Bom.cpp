@@ -1,4 +1,7 @@
+// General solution : Get distance from the circle centre point, compare it to the radius and count the impact.
+
 #include <bits/stdc++.h>
+#define ll long long
 #define boost ios_base::sync_with_stdio(false); cin.tie(NULL);
 using namespace std;
 
@@ -15,7 +18,7 @@ void run_cases(int koorX[], int koorY[], int bom, int X, int Y, int N) {
         if(temp <= bom) insider++;
     }
 
-    cout << insider << endl;
+    cout << insider;
 }
 
 int main() {
