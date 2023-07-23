@@ -1,5 +1,7 @@
-# 🚀 Competitive Programming CPP
+# 🚀 Competitive Programming
 
-This is my template for competitive programming, using C++ language. A lot of the redefining function is useful for a lot of practice, i personally use it in Google KickStart, and also a numerous competitive programming competition!
+## Introduction 👋
+Hi! I'm Grant, an IT student @USU. This is my competitive programming journey. I'll document every competitive programming i do and built my portfolio based of it. This is different from my other Data Structure and Algorithm repository, because this repos only contain every competition i compete in.
 
-I personally want to update this CP template to make it a lot more complete, with more library that i built from scratch, and more. So keep checking for any other update, thank you ^3^)/ ~
+## Contact & Issues 📩
+Please contact me via gmail in my profile for any question, or feel free to open up an issues page and i'll happily check it. ^3^)/ ~
