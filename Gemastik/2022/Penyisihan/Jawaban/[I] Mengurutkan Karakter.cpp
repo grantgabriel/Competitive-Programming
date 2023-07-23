@@ -16,7 +16,7 @@ int main() {
         if(A[i] > B[i]) {
             pivot++;
             while(A[i] >= B[i]) i++;
-        }
+        } 
     }
 
     cout << pivot;
