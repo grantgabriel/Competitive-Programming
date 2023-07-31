@@ -1,74 +1,54 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
+#include <bits/stdc++.h>
+#define ll long long
+#define ull unsigned long long
+#define bug(a) cout << a
+#define bugs(a) cout << a << ' '
+#define debug(a) cout << a << endl
+#define boost ios_base::sync_with_stdio(false); cin.tie(NULL)
 using namespace std;
 
 int main() {
+    boost;
+    
     int N;
     cin >> N;
+    int glass[N];
 
-    vector<int> volumes(N);
-    int totalVolume = 0;
-
-    for (int i = 0; i < N; i++) {
-        cin >> volumes[i];
-        totalVolume += volumes[i];
-    }
-
-    int rataanVolume = totalVolume / N;
-
-    bool volumeSama = true;
-    for (int i = 0; i < N; i++) {
-        if (volumes[i] != rataanVolume) {
-            volumeSama = false;
-            break;
-        }
-    }
-
-    if (volumeSama) {
+    if(N == 1) {
+        cin >> glass[0];
         cout << "SESUAI";
+        return 0;
+    }
+    
+    for(int i = 0; i < N; i++)
+        cin >> glass[i];
+
+    map<int, int> glassMap;
+
+    for(int i = 0; i < N; i++) 
+        glassMap[glass[i]]++;
+
+    if(glassMap.size() == 3) {
+        int arr[3], its = 0, sum = 0;
+        for(const auto& pair : glassMap) {
+            arr[its] = pair.first;
+            sum += arr[its];
+            its++;
+        } 
+
+        int pivot
+        for(int i = 0; i < 3; i++) {
+            if(arr[i] == sum / 3) pivot = arr[i]; 
+        }
+
+
+            
     } else {
-        bool mungkin = false;
-        int tuangDari, tuangKe, banyakTuang;
-
-        for (int i = 0; i < N; i++) {
-            for (int j = i + 1; j < N; j++) {
-                int diff = volumes[i] - volumes[j];
-                if (abs(diff) % 2 == 0) {
-                    int ganteng = abs(diff) / 2;
-                    int newVolumeI = volumes[i] - ganteng;
-                    int newVolumeJ = volumes[j] + ganteng;
-
-                    bool nyata = true;
-                    for (int k = 0; k < N; k++) {
-                        if (k == i || k == j)
-                            continue;
-                        if (volumes[k] != rataanVolume && (volumes[k] != newVolumeI && volumes[k] != newVolumeJ)) {
-                            nyata = false;
-                            break;
-                        }
-                    }
-
-                    if (nyata) {
-                        mungkin = true;
-                        tuangDari = i + 1;
-                        tuangKe = j + 1;
-                        banyakTuang = ganteng;
-                        break;
-                    }
-                }
-            }
-            if (mungkin)
-                break;
-        }
-
-        if (mungkin) {
-            cout << abs(banyakTuang) << " " << tuangDari << " " << tuangKe;
-        } else {
-            cout << "TIDAK SESUAI";
-        }
+        for(const auto& pair : glassMap)
     }
 
+
+
+    
     return 0;
 }
