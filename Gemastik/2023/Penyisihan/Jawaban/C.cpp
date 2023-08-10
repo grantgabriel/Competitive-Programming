@@ -10,12 +10,23 @@ using namespace std;
 int main() {
     boost;
     
-    int N;
+    string N, decodedN;
     cin >> N;
-    int glass[N];
-    
-    for(int i = 0; i < N; i++);
-        cin >> glass[i];
+
+    for(int i = 0; i < N.length() / 2; i+=2) {
+        string temp = "";
+        if(N[i] == 'A' && N[i + 1] == 'A') 
+            temp += 'AB';
+        else if(N[i] == 'A' && N[i + 1] == 'A') 
+            temp += 'AB';
+        else if(N[i] == 'A' && N[i + 1] == 'A') 
+            temp += 'AB';
+        else if(N[i] == 'A' && N[i + 1] == 'A') 
+            temp += 'AB';
+        else if(N[i] == 'A' && N[i + 1] == 'A') 
+            temp += 'AB';
+    }
+
 
     
     return 0;
