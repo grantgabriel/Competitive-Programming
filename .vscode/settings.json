@@ -89,5 +89,20 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp"
-    }
+    },
+    "tasks": [
+        {
+            "label": "crun",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-NoProfile",
+                "-Command",
+                "g++ -o test $fileName && ./test.exe"
+            ],
+            "problemMatcher": []
+        }
+    ],
 }
