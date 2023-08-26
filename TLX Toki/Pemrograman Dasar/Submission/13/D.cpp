@@ -1,32 +1,26 @@
 #include <iostream>
 using namespace std;
 
-int N, K, arr[10];
-bool used[10];
+int n, k, dp[10];
 
-void pwbrankas(int kedalaman) {
-    if(kedalaman > N) {
-        for(int i = 1; i <= K; i++) {
-            cout << arr[i] << " ";
+void pwbreak(int x) { 
+    if(x >= k) {
+        for(int i = 0; i < k; i++) {
+            cout << dp[i] << ' ';
         }
 
         cout << endl;
-        return;
-    } 
-
-    for(int i = arr[kedalaman - 1] + 1; i <= N; i++) {
-        if(used[i] == false) {
-            used[i] = true;
-            arr[kedalaman] = i;
-            pwbrankas(kedalaman + 1);
-            used[i] = false;
+    } else {
+        for(int i = dp[x - 1] + 1; i <= n; i++) {
+            dp[x] = i;
+            pwbreak(x + 1);
         }
     }
 }
 
 int main() {
-    cin >> N >> K;
-    pwbrankas(1);
-
+    cin >> n >> k;
+    pwbreak(0);
+    
     return 0;
 }
