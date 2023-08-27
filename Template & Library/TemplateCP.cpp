@@ -1,28 +1,50 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <array>
+#include <bitset>
+#include <cassert>
+#include <chrono>
+#include <cmath>
+#include <climits>
+#include <cstdint>
+#include <string>
+#include <functional>
+#include <iomanip>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <random>
+#include <stack>
+#include <vector>
+#include <set>
 using namespace std;
 
 #define ll long long
+#define ull unsigned long long
 #define pii pair<int, int>
 #define pll pair<long long, long long>
 #define vi vector<int>
 #define vll vector<long long>
 #define mii map<int, int>
-#define si set<int> 
+#define si set<int>
 #define sc set<char>
 
 #define fors(i,s,e) for(long long int i=s;i<e;i++)
 #define foro(i,e) for(long long int i=0; i<e; i++)
 #define cf(i,s,e) for(long long int i=s;i<=e;i++)
 #define rf(i,e,s) for(long long int i=e-1;i>=s;i--)
+#define bug(a) cout << a
+#define bugs(a) cout << a << ' '
+#define debug(a) cout << a << endl
 #define boost ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 #define pb push_back
 #define eb emplace_back
 #define sw swap
 
-template <class T> 
+template <class T>
 void print_v(vector<T> &v) {
-    cout << "{"; 
-    for (auto x : v) 
+    cout << "{";
+    for (auto x : v)
         cout << x << ",";
     cout << "\b}";
 }
@@ -53,6 +75,8 @@ typedef unsigned long long int  uint64;
 
 int main() {
     boost;
-
+    
+    
+    
     return 0;
 }

@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <string>
 using namespace std;
-#define boost ios_base::sync_with_stdio(false); cin.tie(NULL)
 
 int m[128][128];
 
@@ -22,8 +21,6 @@ void transform(int r, int c, int k, int index, string s) {
 }
 
 int main() {
-    boost;
-    
     int n; cin >> n;
     string biner[n];
     for(int i = 0; i < n; i++) {
@@ -33,7 +30,7 @@ int main() {
     int r, c; cin >> r >> c;
     int pow = 1;
 
-    while(pow < max(r,c));
+    while(pow < max(r,c))
         pow *= 2;
 
     for(int i = 0; i < pow; i++) {
