@@ -11,14 +11,14 @@ using namespace std;
 int main() {    
     int R, C; cin >> R >> C;
     string full = "", empty = "";
-    vector<string> row(R), newRow;
+    vector<string> row;
 
     for(int i = 0; i < C; i++) {
         full += "1";
         empty += "0";
     }
     
-    for(auto &r : row) {
+    for(int i = 0; i < R; i++) {
         string temp; cin >> temp;
         if(temp == full) {
             row.push_back(empty);
@@ -27,30 +27,19 @@ int main() {
         }
     }
 
-    for(int i = 0; i < C; i++) {
-        string temp = "";
-        for(int j = 0; j < R; j++) {
-            temp += row[i][j];
+    for(int i = 0; i < R - 1; i++) {
+        string A = row[i], B = row[i + 1]; 
+        for(int j = 0; i < C; j++) {
+            if(A[j] == '1' and B[j] == '0') {
+                A[j] = '0';
+                B[j] = '1';
+            }
         }
-        newRow.push_back(temp);
+        row[i] = A; row[i + 1] = B;
     }
 
-    for(auto &r : row) {
-        sort(r.begin(), r.end());
-    }
-
-    // for(int i = 0; i < R - 1; i++) {
-    //     string &A = row[i], &B = row[i + 1]; 
-    //     for(int j = 0; i < C; j++) {
-    //         if(A[j] == 1 and B[j] == 0) {
-    //             A[j] = 0;
-    //             B[j] = 1;
-    //         }
-    //     }
-    // }
-
-    for(auto &r : row) {
-        cout << r << endl;
+    for(int i = 0; i < R; i++) {
+        cout << row[i] << endl;
     } 
 
     return 0;
