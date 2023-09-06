@@ -1,18 +1,31 @@
-#include <iostream>
-#include <algorithm>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <algorithm>
 using namespace std;
-
 #define boost ios_base::sync_with_stdio(false); cin.tie(NULL)
 
 struct pemain {
-    int 
+    string ID;
+    int N1, N2, N3;
 };
 
+void run_cases() {
+    int N, M;
+    cin >> N >> M;
+    string TID; cin >> TID;
+    int T1, T2, T3;
 
-
-void run_cases();
+    vector<pemain> peserta(N);
+    for(auto &r : peserta) {
+        cin >> r.ID >> r.N1 >> r.N2 >> r.N3;
+        if(r.ID == TID) {
+            T1 = r.N1;
+            T2 = r.N2;
+            T3 = r.N3;
+        }
+    }
+}
 
 int main() {
     boost;
