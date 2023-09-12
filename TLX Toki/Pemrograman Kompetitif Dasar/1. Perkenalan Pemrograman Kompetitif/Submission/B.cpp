@@ -10,13 +10,23 @@ int R, C, lastRow;
 vector<string> row;
 string full = "", emp = "";
 
+void isiAkhir() {
+    for(int i = 0; i < 8; i++) {
+        akhirBaris[i] = R;
+    }
+}
+
 bool adaLayakRuntuh() {
-    for(auto &r : row)
-        if(r == full) return true;
+    for(auto &r : row) {
+        if(r == full) {
+            return true;
+        }
+    }
     return false;
 }
 
 void hitungAtas() {
+    // memset(satuBaris, 0, sizeof(satuBaris));
     for(int i = 0; i < C; i++) {
         for(int j = 0; j < lastRow; j++) {
             if(row[j][i] == '1') {
@@ -28,8 +38,10 @@ void hitungAtas() {
 }
 
 void hitungBawah() {
+    // memset(akhirBaris, R, sizeof(akhirBaris));
+    isiAkhir();
     for(int i = 0; i < C; i++) {
-        for(int j = R - 1; j > lastRow; j--) {
+        for(int j = R - 1; j >= lastRow; j--) {
             if(row[j][i] == '1') {
                 akhirBaris[i] = j; 
             }
@@ -39,7 +51,7 @@ void hitungBawah() {
 
 void stackBawah() {
     for(int i = 0; i < C; i++) {
-        for(int j = akhirBaris[i] - 1; satuBaris[i] > 0; j--) {
+        for(int j = akhirBaris[i] - 1; (satuBaris[i] > 0) and (j >= 0); j--) { // Masalah pada j != 0 atau j >= 0
             row[j][i] = '1';
             satuBaris[i]--;
         }
@@ -62,8 +74,8 @@ void peruntuhan() {
 }
 
 int main() {    
-    memset(satuBaris, 0, sizeof(satuBaris));
     cin >> R >> C;
+    memset(satuBaris, 0, sizeof(satuBaris));
 
     for(int i = 0; i < C; i++) {
         full += "1";
@@ -75,8 +87,14 @@ int main() {
         row.push_back(temp);
     }
 
-    while(adaLayakRuntuh())
+    while(adaLayakRuntuh()) {
         peruntuhan();
+        // cout << "Hasil : " << endl;
+        // for(auto &r : row)
+        //     cout << r << endl;
+
+        // cout << endl << endl;
+    }
 
     for(auto &r : row)
         cout << r << endl;
