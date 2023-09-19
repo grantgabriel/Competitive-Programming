@@ -52,10 +52,10 @@ void print_v(vector<T> &v) {
 #define MOD 1000000007
 #define PI 3.1415926535897932384626433832795
 #define read(type) readInt<type>()
-ll min(ll a,int b) { if (a<b) return a; return b; }
-ll min(int a,ll b) { if (a<b) return a; return b; }
-ll max(ll a,int b) { if (a>b) return a; return b; }
-ll max(int a,ll b) { if (a>b) return a; return b; }
+ll min(ll a,ll b) { if (a<b) return a; return b; }
+ll min(ll a,ll b) { if (a<b) return a; return b; }
+ll max(ll a,ll b) { if (a>b) return a; return b; }
+ll max(ll a,ll b) { if (a>b) return a; return b; }
 ll gcd(ll a,ll b) { if (b==0) return a; return gcd(b, a%b); }
 ll lcm(ll a,ll b) { return a/gcd(a,b)*b; }
 
