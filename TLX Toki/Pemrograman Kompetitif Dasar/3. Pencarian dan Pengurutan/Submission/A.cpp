@@ -1,22 +1,6 @@
 #include <iostream>
-#include <array>
+#include <math.h>
 #include <algorithm>
-#include <bitset>
-#include <cassert>
-#include <chrono>
-#include <cmath>
-#include <cstdint>
-#include <climits>
-#include <string>
-#include <functional>
-#include <iomanip>
-#include <map>
-#include <numeric>
-#include <queue>
-#include <random>
-#include <stack>
-#include <vector>
-#include <set>
 using namespace std;
 
 #define ll long long
@@ -27,16 +11,26 @@ using namespace std;
 #define boost ios_base::sync_with_stdio(false); cin.tie(NULL)
 
 int main() {
-    boost;
-    
     int N, target; cin >> N >> target;
-    int diff = INT_MAX, temp;
+    int diff = INT_MAX, diffTemp = INT_MAX, temp;
     bool doubly = false;
-
 
     while(N--) {
         cin >> temp;
-        diff = max(diff, abs(temp - target))
+        diffTemp = min(diffTemp, abs(temp - target));
+        if(diff != diffTemp) {
+            diff = diffTemp; doubly = false;
+        } else if(diff == diffTemp) {
+            doubly = true;
+        }
+    }
+
+    if(diff == diffTemp and target < 0) {
+        cout << (min((target - diff), (diff - target)));
+    } else if(diff == diffTemp and target > 0) {
+        cout << -(min((target - diff), (diff - target)));
+    } else {
+        cout << "KONTOL";
     }
     
     return 0;
