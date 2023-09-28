@@ -28,7 +28,7 @@ void run_cases() {
 
 	// singleCounter : 100
 	// affordB : 0
-	// doubleCounter : 33
+	// doubleCounter : 33 
 	// affordA : 1 
 
 	unsigned long long int bunsCase1 = (singleCounter * 2) + (affordB * 2);
