@@ -14,23 +14,10 @@ int N, M, K; int grid[150][150];
 
 void countNeighbors(int x, int y) {
 	ull total;
-
-	if(y == 0 and x == 0) {
-		total = grid[x + 1][y] * grid[x][y + 1];
-	} else if(x == 0 and y == M - 1) {
-		total = grid[x][y - 1] * grid[x + 1][y];
-	} else if(x == N - 1 and y == 0) {
-		total = grid[x - 1][y] * grid[x][y + 1];
-	} else if(x == 0) {
-		total = grid[x][y - 1] * grid[x + 1][y] * grid[x][y + 1];
-	} else if(y == 0) {
-		total = grid[x + 1][y] * grid[x - 1][y] * grid[x][y + 1];
-	} else {
-		total = grid[x][y + 1] * grid[x][y - 1] * grid[x + 1][y] * grid[x - 1][y];
-	}
+	total = grid[x][y + 1] * grid[x][y - 1] * grid[x + 1][y] * grid[x - 1][y];
 
 	if(total == K) {
-		ans.push_back(make_pair(x + 1, y + 1)); ada = true;
+		ans.push_back(make_pair(y, x)); ada = true;
 	} 
 }
 
@@ -63,15 +50,15 @@ int main() {
 	}
 	
 	int temp;
-	for(int i = 0; i < N; i++) {
-		for(int j = 0; j < M; j++) {
+	for(int i = 1; i <= N; i++) {
+		for(int j = 1; j <= M; j++) {
 			cin >> temp;
 			grid[i][j] = temp;
 		}		
 	}
 
-	for(int x = 0; x < N; x++) {
-		for(int y = 0; y < M; y++) {
+	for(int x = 1; x <= N; x++) {
+		for(int y = 1; y <= M; y++) {
 			countNeighbors(x, y);
 		}
 	}
