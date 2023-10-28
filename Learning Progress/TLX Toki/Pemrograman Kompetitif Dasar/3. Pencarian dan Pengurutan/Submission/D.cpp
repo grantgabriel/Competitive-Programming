@@ -9,35 +9,19 @@ vector<ull> bebeks;
 map<ull, int> countMap;
 
 int binarySearch(ull target) {
+    int max = 0;
     int kiri = 0;
     int kanan = N - 1;
     int tengah = kiri + (kanan - kiri) / 2;
 
-    while(kanan >= kiri) {
+    while(kiri <= kanan) {
         tengah = kiri + (kanan - kiri) / 2;
-
-        if(bebeks[tengah] = target) return tengah;
-        else if(target > bebeks[tengah]) kiri = tengah + 1;
+        if(bebeks[tengah] <= target) {kiri = tengah + 1; max = tengah;}
         else kanan = tengah - 1;
     }
 
-    return kiri;
+    return max;
 }
-
-// int hitung(ull x, ull y) {
-//     int counter = 0;
-//     for(auto &pair : countMap) {
-//         if(pair.first <= x) continue;
-
-//         if(pair.first > x and pair.first <= y) 
-//             counter += pair.second;
-
-//         if(pair.first > y)
-//             break;
-//     }
-
-//     return counter;
-// }
 
 int main() {
     ull temp;
