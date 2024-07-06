@@ -1,3 +1,6 @@
+// Solved By       : Grant Gabriel Tambunan
+// Connect With Me : https://www.linkedin.com/in/grantgabrieltambunan/
+
 #include <iostream>
 #include <array>
 #include <algorithm>
@@ -28,20 +31,7 @@ using namespace std;
 int main() {
   boost;
   
-  int N; cin >> N;
-  vector<int> arr(N);
-  unordered_map<int, int> maps;
-
-  for(int x : arr) {
-    cin >> x;
-    maps[x]++;
-  }
-
-  for(int i = 1; i <= N; i++) {
-    
-  }
-
-
+  
   
   return 0;
 }
