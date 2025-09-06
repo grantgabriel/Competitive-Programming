@@ -33,7 +33,7 @@ using namespace std;
 void generateSubsetSums(const vector<int> &nums, vector<int> &subsetSums)
 {
   int n = nums.size();
-  int numOfSubsets = 1 << n; // 2^n subsets
+  int numOfSubsets = 1 << n;
 
   for (int i = 0; i < numOfSubsets; ++i)
   {
@@ -54,28 +54,22 @@ int closestSum(const vector<int> &nums, int target)
   int n = nums.size();
   int half = n / 2;
 
-  // Generate subset sums for each half
   vector<int> firstHalfSums, secondHalfSums;
   generateSubsetSums(vector<int>(nums.begin(), nums.begin() + half), firstHalfSums);
   generateSubsetSums(vector<int>(nums.begin() + half, nums.end()), secondHalfSums);
 
-  // Sort the sums of the second half
   sort(secondHalfSums.begin(), secondHalfSums.end());
 
   int closest = INT_MAX, closestSum = 0;
 
-  // Iterate over all sums of the first half
   for (int sum1 : firstHalfSums)
   {
-    // Find the closest sum in the second half using binary search
     auto it = lower_bound(secondHalfSums.begin(), secondHalfSums.end(), target - sum1);
 
-    // Check the closest sums found in the second half
     if (it != secondHalfSums.end())
     {
       int sum2 = *it;
       int currentSum = sum1 + sum2;
-      // Update closestSum if the current sum is closer to target or has a lower sum with the same closeness
       if (abs(currentSum - target) < abs(closestSum - target) ||
           (abs(currentSum - target) == abs(closestSum - target) && currentSum < closestSum))
       {
@@ -87,7 +81,6 @@ int closestSum(const vector<int> &nums, int target)
     {
       int sum2 = *(--it);
       int currentSum = sum1 + sum2;
-      // Update closestSum if the current sum is closer to target or has a lower sum with the same closeness
       if (abs(currentSum - target) < abs(closestSum - target) ||
           (abs(currentSum - target) == abs(closestSum - target) && currentSum < closestSum))
       {
@@ -135,18 +128,25 @@ int main()
   int minE = INT_MAX;
   for (const auto &pair : m)
   {
+    cout << pair.first << " | " << pair.second << endl;
     minE = min(minE, abs(pair.second - K));
   }
 
-  vector<string> ans;
+  vector<pair<int, string>> ans;
   for (const auto &pair : m)
   {
     if (abs(pair.second - K) == minE)
-      ans.emplace_back(pair.first);
+      ans.emplace_back(K - pair.second, pair.first);
   }
 
-  sort(ans.begin(), ans.end());
-  cout << ans[0];
+  std::sort(ans.begin(), ans.end(), [](const std::pair<int, std::string> &a, const std::pair<int, std::string> &b) {
+    if (a.first != b.first) {
+      return a.first < b.first;
+    }
+    return a.second < b.second; 
+  });
+
+  cout << ans[0].second;
 
   return 0;
 }

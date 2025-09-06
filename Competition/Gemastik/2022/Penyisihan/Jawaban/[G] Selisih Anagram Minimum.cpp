@@ -1,69 +1,65 @@
-// General solution : Use "next_permutation" and "prev_permutation" to check the minumum. *(!)
+// Solved By       : Grant Gabriel Tambunan
+// Connect With Me : https://www.linkedin.com/in/grantgabrieltambunan/
 
-// #include <bits/stdc++.h>
-// #define boost ios_base::sync_with_stdio(false); cin.tie(NULL);
-// #define ll long long
-// using namespace std;
-
-// int main() {
-//     boost;
-
-//     ll N;
-//     cin >> N;
-//     string tempNext = to_string(N), tempPrev = to_string(N);
-
-//     ll arrayNext, arrayPrev, minimum = 9999999;
-    
-//         (next_permutation(tempNext.begin(), tempNext.end()));
-//         (prev_permutation(tempPrev.begin(), tempPrev.end()));
-
-//         arrayNext = stoll(tempNext);
-//         arrayPrev = stoll(tempPrev);
-
-//         minimum = min(minimum, abs(arrayNext - N));
-//         minimum = min(minimum, abs(arrayPrev - N));
-
-//     cout << minimum;
-
-//     return 0;
-// }
-
-// 313
-// 331
-// 133
-
-
-#include <bits/stdc++.h>
-#define ll long long
-#define boost ios_base::sync_with_stdio(false); cin.tie(NULL);
+#include <iostream>
+#include <array>
+#include <algorithm>
+#include <bitset>
+#include <cassert>
+#include <chrono>
+#include <cmath>
+#include <cstdint>
+#include <climits>
+#include <string>
+#include <functional>
+#include <iomanip>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <random>
+#include <stack>
+#include <vector>
+#include <set>
 using namespace std;
 
-ll run_cases(string x) {
-    ll minimum = 9999999999;
-    string tempString = x;
-    ll num = stoll(x);
+#define ll long long
+#define ull unsigned long long
+#define all(a) a.begin(), a.end()
+#define debug(a) cout << a << endl
+#define boost ios_base::sync_with_stdio(false); cin.tie(NULL)
 
-    sort(tempString.begin(), tempString.end());
-    
-    do {
-        ll pivot = stoll(tempString);
-        // cout << pivot << endl;
-        ll difference = abs(num - pivot);
-
-        if(num != pivot) minimum = min(difference, minimum);
-    } while(next_permutation(tempString.begin(), tempString.end()));
-
-    return minimum;
+long long stringToLL(const string& s) {
+    long long num = 0;
+    for (char c : s) {
+        num = num * 10 + (c - '0');
+    }
+    return num;
 }
 
-
 int main() {
-    boost;
-
+  boost;
     string N;
     cin >> N;
+    
+    long long originalNumber = stringToLL(N);
+    long long minDifference = LLONG_MAX;
 
-    cout << run_cases(N);
+    // Sort the string to ensure all permutations are covered
+    sort(N.begin(), N.end());
+    
+    do {
+        // Ensure the permutation does not start with '0'
+        if (N[0] != '0') {
+            long long permutedNumber = stringToLL(N);
+            long long difference = abs(permutedNumber - originalNumber);
+            if (difference < minDifference) {
+                minDifference = difference;
+            }
+        }
+    } while (next_permutation(N.begin(), N.end()));
 
-    return 0;
+    cout << minDifference << endl;
+
+
+  return 0;
 }

@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    "ostream": "cpp",
+    "iostream": "cpp",
+    "deque": "cpp",
+    "string": "cpp",
+    "vector": "cpp",
+    "chrono": "cpp",
+    "random": "cpp",
+    "limits": "cpp"
+  }
+}
